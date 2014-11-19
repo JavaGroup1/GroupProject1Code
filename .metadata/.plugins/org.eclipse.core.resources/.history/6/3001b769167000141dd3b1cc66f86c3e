@@ -19,4 +19,6 @@ public class Movement {
 	
 	public void setMovementName(String movementName) {movementName = movementName;}
 	public void setSoloist(Soloist soloist) {this.soloist = soloist;}
+	
+	
 }
