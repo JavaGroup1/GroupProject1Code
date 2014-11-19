@@ -1,0 +1,24 @@
+
+public class Movement {
+	private String movementID;
+	private String movementName;
+	private Composition composition;
+	private Soloist soloist;
+	
+	public Movement(String id, String name)
+	{
+		this.movementID = id;
+		this.movementName = name;
+	}
+	
+	
+	public String getMovementName() {return movementName;}
+	public String getMovementID() {	return movementID;	}
+	public Composition getComposition() {return composition;}
+	public Soloist getSoloist() {return soloist;}
+	
+	public void setMovementName(String movementName) {MovementName = movementName;}
+	public void setSoloist(Soloist soloist) {this.soloist = soloist;}
+	
+	
+}
