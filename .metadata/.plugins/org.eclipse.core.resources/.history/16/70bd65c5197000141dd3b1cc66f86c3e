@@ -28,7 +28,7 @@ public class Ticket {
 	public Date getConcertDate() {return concertDate;}
 	public Concert getConcert() {return concert;}
 	
-
+	S
 	
 	
 }
