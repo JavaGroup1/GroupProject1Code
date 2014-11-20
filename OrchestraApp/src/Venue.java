@@ -1,6 +1,6 @@
 
 public class Venue {
-	protected int VenueID;
+	protected int venueID;
 	protected String name;
 	protected String postalCode;
 	protected String address;
