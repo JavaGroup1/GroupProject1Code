@@ -100,7 +100,7 @@ public class TicketSales {
 		ConcertSeason season = ConcertSeason.getConcertSeason();
 		List<Concert> bookedConcerts = new ArrayList<Concert>();
 		boolean seatsLeft = true;
-		double cost = 0;
+		double cost;
 		if(season.getConcertList().size() == 0){throw new ApplicationException("Season has no concerts");}
 		if(customer == null){throw new ApplicationException("No customer selected");}
 		
@@ -143,9 +143,7 @@ public class TicketSales {
 				}
 				bookedConcerts.add(concert);
 			}
-		customer.chargeCustomer(cost * this.taxes * season.getConcertList().size());
-		this.grossSales += cost * this.taxes * season.getConcertList().size();
-		this.netSales += cost * season.getConcertList().size();	
+			
 		}catch(Exception ex){
 			// undo the seats
 			for(Concert concert: bookedConcerts)
@@ -162,7 +160,10 @@ public class TicketSales {
 						break;
 				}
 			}
-			throw ex;
 		}
+		
+		
+		//TODO
 	}
+	
 }

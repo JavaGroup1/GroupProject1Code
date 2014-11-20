@@ -5,7 +5,6 @@ public class ApplicationController {
 	private ConcertSeason concertSeason;
 	private Concert selectedConcert;
 	private Customer selectedCustomer;
-	
 	private ApplicationController controller;
 	
 	private ApplicationController()
