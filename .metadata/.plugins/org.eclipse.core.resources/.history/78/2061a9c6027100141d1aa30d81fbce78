@@ -101,7 +101,7 @@ public class TicketSales {
 		return temp;
 	}
 	
-	public SeasonPass sellConcertSeason(Customer customer, char seatType, int seats) throws ApplicationException{
+	public void sellConcertSeason(Customer customer, char seatType, int seats) throws ApplicationException{
 		ConcertSeason season = ConcertSeason.getConcertSeason();
 		List<Concert> bookedConcerts = new ArrayList<Concert>();
 		boolean seatsLeft = true;
@@ -170,7 +170,5 @@ public class TicketSales {
 			throw ex;
 		}
 		SeasonPass temp = new SeasonPass(cost * this.taxes * season.getConcertList().size() , "Where ever you can", seatType, season);
-		this.seasonPasses.add(temp);
-		return temp;
 	}
 }

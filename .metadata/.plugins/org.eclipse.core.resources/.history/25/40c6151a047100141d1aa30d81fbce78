@@ -53,7 +53,7 @@ public class Composer extends Person{
 		return new Builder(new Composer(i,new Date(0,0,0)),fName, lName);	// change int to get new ids
 	}
 	
-	public static Builder builder(int i, Date date, String fName, String lName){
+	public Builder builder(int i, Date date, String fName, String lName){
 		return new Builder(new Composer(i,date),fName, lName);
 	}
 	

@@ -10,8 +10,6 @@ public class TicketSales {
 	private double basePricePerTicket;
 	private List<Customer> customerList = new ArrayList<Customer>();
 	private static TicketSales ticketSales;
-	private List<Ticket> tickets = new ArrayList<Ticket>();
-	private List<SeasonPass> seasonPasses = new ArrayList<SeasonPass>();
 	
 	private TicketSales(){
 		this.taxes = 0.13; 	//Assuming all concerts occur in Ontario and the tax remains constant
@@ -51,8 +49,8 @@ public class TicketSales {
 	}
 	
 	
-	public Ticket sellTicket(Concert concert, Customer customer, char seatType, int seats) throws ApplicationException{
-		double cost = 0;
+	public void sellTicket(Concert concert, Customer customer, char seatType, int seats) throws ApplicationException{
+		double cost;
 		boolean seatsLeft = true;
 		
 		if(concert == null){throw new ApplicationException("No concert selected");}
@@ -96,12 +94,9 @@ public class TicketSales {
 		this.grossSales = cost * this.taxes;
 		this.netSales = cost;
 		this.numSold = seats;
-		Ticket temp = new Ticket(cost * this.taxes, "where ever you can", seatType, concert.getPerformanceDate(), concert);
-		this.tickets.add(temp);
-		return temp;
 	}
 	
-	public SeasonPass sellConcertSeason(Customer customer, char seatType, int seats) throws ApplicationException{
+	public void sellConcertSeason(Customer customer, char seatType, int seats) throws ApplicationException{
 		ConcertSeason season = ConcertSeason.getConcertSeason();
 		List<Concert> bookedConcerts = new ArrayList<Concert>();
 		boolean seatsLeft = true;
@@ -169,8 +164,5 @@ public class TicketSales {
 			}
 			throw ex;
 		}
-		SeasonPass temp = new SeasonPass(cost * this.taxes * season.getConcertList().size() , "Where ever you can", seatType, season);
-		this.seasonPasses.add(temp);
-		return temp;
 	}
 }

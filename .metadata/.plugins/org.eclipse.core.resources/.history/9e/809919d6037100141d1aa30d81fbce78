@@ -39,8 +39,7 @@ public class ApplicationController {
 	public void createSoloist(int i, String fName,String lName,String cellPhone, String homephone, Date dateOfBirth, String email, String homeAddress){
 		this.selectedSoloist = Soloist.newBuild(i, fName, lName).cellPhone(cellPhone).homePhone(homeAddress).homeAddress(homeAddress).dateOfBirth(dateOfBirth).email(email).build();
 	}
-	public void selectSoloist(Soloist soloist){this.selectedSoloist = soloist;}
-	public Soloist getSoloist(){return this.selectedSoloist;}
+	
 	
 	
 	
