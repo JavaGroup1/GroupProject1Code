@@ -5,7 +5,7 @@ import java.util.List;
 public class Orchestra {
 	public Orchestra() {	}
 	private Conductor conductor;
-	private int orechestraID;
+	private int orchestraID;
 	private List<Soloist> soloists = new ArrayList<Soloist>();
 	
 	
