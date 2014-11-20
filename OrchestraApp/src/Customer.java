@@ -50,4 +50,9 @@ public class Customer extends Person {
 	}
 	
 	public int getCustomerID(){return this.customerID;}
+	
+	public void chargeCustomer(double money) throws ApplicationException{
+		// can't implement
+		// charges customer and if it fails throws and exception
+	}
 }

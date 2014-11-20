@@ -17,11 +17,11 @@ public abstract class Musician extends Employee{
 	public String getPosition(){return this.position;}
 	
 	public void addInstrument(String instrument){instrumentArray.add(instrument);}
-	public List getInstrumentList(){return this.instrumentArray;}
+	public List<String> getInstrumentList(){return this.instrumentArray;}
 	public boolean removeInstrument(String i){return this.instrumentArray.remove(i);}
 	
 	public void addPerformance(int p){this.performanceIDs.add(p);}
-	public List getPerformanceList(){return this.performanceIDs;}
+	public List<Integer> getPerformanceList(){return this.performanceIDs;}
 	public boolean removePerformance(Integer p){return this.performanceIDs.remove(p);}
 	
 }
