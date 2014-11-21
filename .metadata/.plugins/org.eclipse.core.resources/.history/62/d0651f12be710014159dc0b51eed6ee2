@@ -5,6 +5,7 @@ public class Ticket {
 	
 	public Ticket(double price, String seatSection, char grade,
 			Date concertDate, Concert concert) {
+		super();
 		this.price = price;
 		this.seatSection = seatSection;
 		this.grade = grade;

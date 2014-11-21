@@ -10,7 +10,7 @@ public class Orchestra {
 	
 	
 	public Conductor getConductor() {return conductor;}
-	public int getOrechestraID() {return orchestraID;}
+	public int getOrechestraID() {return orechestraID;}
 	
 	
 	
