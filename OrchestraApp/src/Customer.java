@@ -27,13 +27,13 @@ public class Customer extends Person {
 			this.newHomeAddress = new String();
 		}
 		
-		public void dateOfBirth(Date dob){this.newDateOfBirth = dob;}
-		public void email(String e){this.newEmail = e;}
-		public void homePhone(String hp){this.newHomePhone = hp;}
-		public void cellPhone(String cp){this.newCellPhone = cp;}
-		public void homeAddress(String ha){this.newHomeAddress = ha;}
+		public Builder dateOfBirth(Date dob){this.newDateOfBirth = dob; return this;}
+		public Builder email(String e){this.newEmail = e; return this;}
+		public Builder homePhone(String hp){this.newHomePhone = hp; return this;}
+		public Builder cellPhone(String cp){this.newCellPhone = cp; return this;}
+		public Builder homeAddress(String ha){this.newHomeAddress = ha; return this;}
 		
-		public Person build(){
+		public Customer build(){
 			customer.firstName = this.newFirstName;
 			customer.lastName = this.newLastName;
 			customer.dateOfBirth = this.newDateOfBirth;
@@ -45,9 +45,14 @@ public class Customer extends Person {
 		}
 	}
 	
-	public Builder builder(int i, String fName, String lName){
+	public static Builder builder(int i, String fName, String lName){
 		return new Builder(new Customer(i),fName, lName);	// change int to get new ids
 	}
 	
 	public int getCustomerID(){return this.customerID;}
+	
+	public void chargeCustomer(double money) throws ApplicationException{
+		// can't implement
+		// charges customer and if it fails throws and exception
+	}
 }

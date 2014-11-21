@@ -4,18 +4,18 @@ import java.util.List;
 
 
 public class ConcertSeason {
-	private ConcertSeason concertSeason;
+	private static ConcertSeason concertSeason;
 	private Date startDate;
 	private List<Concert> concerts = new ArrayList<Concert>();
 	
 	
 	private ConcertSeason(){}
 	
-	public ConcertSeason getConcertSeason(){
-		if(this.concertSeason == null){
-			this.concertSeason = new ConcertSeason();
+	public static ConcertSeason getConcertSeason(){
+		if(concertSeason == null){
+			concertSeason = new ConcertSeason();
 		}
-		return this.concertSeason;
+		return concertSeason;
 	}
 	
 	public List<Concert> getConcertList(){return this.concerts;}

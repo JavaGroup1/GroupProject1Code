@@ -27,8 +27,4 @@ public class Ticket {
 	public char getGrade() {return grade;}
 	public Date getConcertDate() {return concertDate;}
 	public Concert getConcert() {return concert;}
-	
-
-	
-	
 }

@@ -37,13 +37,13 @@ public class Conductor extends Musician {
 			this.newPosition = new String();
 		}
 		
-		public void dateOfBirth(Date dob){this.newDateOfBirth = dob;}
-		public void email(String e){this.newEmail = e;}
-		public void homePhone(String hp){this.newHomePhone = hp;}
-		public void cellPhone(String cp){this.newCellPhone = cp;}
-		public void homeAddress(String ha){this.newHomeAddress = ha;}
-		public void orchestraSection(String os){this.newOrchestraSection = os;}
-		public void position(String p){this.newPosition = p;}
+		public Builder dateOfBirth(Date dob){this.newDateOfBirth = dob;return this;}
+		public Builder email(String e){this.newEmail = e;return this;}
+		public Builder homePhone(String hp){this.newHomePhone = hp;return this;}
+		public Builder cellPhone(String cp){this.newCellPhone = cp;return this;}
+		public Builder homeAddress(String ha){this.newHomeAddress = ha;return this;}
+		public Builder orchestraSection(String os){this.newOrchestraSection = os;return this;}
+		public Builder position(String p){this.newPosition = p;return this;}
 		
 		public Person build(){
 			conductor.firstName = this.newFirstName;
@@ -59,7 +59,7 @@ public class Conductor extends Musician {
 		}
 	}
 	
-	public Builder newBuild(int i, String fName, String lName){
+	public static Builder newBuild(int i, String fName, String lName){
 		return new Builder(new Conductor(i), fName, lName);
 	}
 	

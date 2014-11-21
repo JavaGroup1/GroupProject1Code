@@ -1,0 +1,74 @@
+import java.sql.Date;
+import java.util.List;
+
+
+public class ApplicationController {
+	private ConcertSeason concertSeason;
+	private Concert selectedConcert;
+	private Customer selectedCustomer;
+	private Soloist selectedSoloist;
+	private Conductor selectedConductor;
+	private Composer selectedComposer;
+	private Venue selectedVenue;
+	private TicketSales ticketSales = TicketSales.getTicketSales();
+	
+	private Ticket selectedTicket;
+	private SeasonPass selectedPass;
+	
+	private ApplicationController controller;
+	
+	private ApplicationController()
+	{
+		super();
+		this.concertSeason = ConcertSeason.getConcertSeason();
+	}
+	
+	public ApplicationController getApplicationController(){
+		if(this.controller == null){this.controller = new ApplicationController();}
+		return this.controller;
+	}
+	
+	public List<Concert> getConcertList(){return this.concertSeason.getConcertList();}
+	public void addConcertToSeason(Concert c){this.concertSeason.addConcert(c);}
+	public void removeConcertAt(int i){this.concertSeason.removeConcertAt(i);}
+	
+	
+	//customer selection stuff
+	public void createCustomer(int i, String fName,String lName,String cellPhone, String homephone, Date dateOfBirth, String email, String homeAddress){
+		this.selectedCustomer = Customer.builder(i,fName, lName).cellPhone(cellPhone)
+				.homePhone(homephone).dateOfBirth(dateOfBirth).email(email).homeAddress(homeAddress).build();
+	}
+	public void selectCustomer(Customer customer){this.selectedCustomer = customer;}
+	public Customer getSelectedCustomer(){return this.selectedCustomer;}
+	
+	
+	
+	public void createSoloist(int i, String fName,String lName,String cellPhone, String homephone, Date dateOfBirth, String email, String homeAddress){
+		this.selectedSoloist = Soloist.newBuild(i, fName, lName).cellPhone(cellPhone).homePhone(homeAddress).homeAddress(homeAddress).dateOfBirth(dateOfBirth).email(email).build();
+	}
+	public void selectSoloist(Soloist soloist){this.selectedSoloist = soloist;}
+	public Soloist getSoloist(){return this.selectedSoloist;}
+	
+	public void setSelectedConductor(Conductor conductor){this.selectedConductor = conductor;}
+	public Conductor getConductor(){return this.selectedConductor;}
+	
+	public void setSelectedComposer(Composer composer){this.selectedComposer = composer;}
+	public Composer getComposer(){return this.selectedComposer;}
+	
+	public void setSelectedVenue(Venue venue){this.selectedVenue = venue;}
+	public Venue getVenue(){return this.selectedVenue;}
+	
+	public void setSelectedConcert(Concert concert){this.selectedConcert = concert;}
+	public Concert getConcert(){return this.selectedConcert;}
+	
+	
+	public void addConcert(Concert concert){this.concertSeason.addConcert(concert);}
+	public void addConcert() throws ApplicationException{
+		if(this.selectedConcert == null){
+			throw new ApplicationException("No concert selected");
+		}
+		this.concertSeason.addConcert(selectedConcert);
+	}
+	
+	
+}

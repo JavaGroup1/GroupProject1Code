@@ -1,0 +1,47 @@
+import java.sql.Date;
+import java.util.List;
+
+
+public class ApplicationController {
+	private ConcertSeason concertSeason;
+	private Concert selectedConcert;
+	private Customer selectedCustomer;
+	private Soloist selectedSoloist;
+	private Conductor selectedConductor;
+	private Composer selectedComposer;
+	private Venue selectedVenue;
+	private Date selectedDate;
+	private Ticket selectedTicket;
+	private SeasonPass selectedPass;
+	
+	
+	
+	private ApplicationController controller;
+	
+	private ApplicationController()
+	{
+		super();
+		this.concertSeason = ConcertSeason.getConcertSeason();
+	}
+	
+	public List<Concert> getConcertList(){return this.concertSeason.getConcertList();}
+	public void addConcertToSeason(Concert c){this.concertSeason.addConcert(c);}
+	public void removeConcertAt(int i){this.concertSeason.removeConcertAt(i);}
+	
+	//customer selection stuff
+	public void createCustomer(int i, String fName,String lName,String cellPhone, String homephone, Date dateOfBirth, String email, String homeAddress){
+		this.selectedCustomer = Customer.builder(i,fName, lName).cellPhone(cellPhone)
+				.homePhone(homephone).dateOfBirth(dateOfBirth).email(email).homeAddress(homeAddress).build();
+	}
+	public void selectCustomer(Customer customer){this.selectedCustomer = customer;}
+	public Customer getSelectedCustomer(){return this.selectedCustomer;}
+	
+	public void createSoloist(int i, String fName,String lName,String cellPhone, String homephone, Date dateOfBirth, String email, String homeAddress){
+		this.selectedSoloist = Soloist.newBuild(i, fName, lName).cellPhone(cellPhone).homePhone(homeAddress).homeAddress(homeAddress).dateOfBirth(dateOfBirth).email(email).build();
+	}
+	public void selectSoloist(Soloist soloist){this.selectedSoloist = soloist;}
+	public Soloist getSoloist(){return this.selectedSoloist;}
+	
+	
+	
+}

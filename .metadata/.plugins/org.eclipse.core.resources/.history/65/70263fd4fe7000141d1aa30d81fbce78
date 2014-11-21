@@ -1,0 +1,29 @@
+import java.util.List;
+
+
+public class ApplicationController {
+	private ConcertSeason concertSeason;
+	private Concert selectedConcert;
+	private Customer selectedCustomer;
+	private Soloist selectedSoloist;
+	private Conductor selectedConductor;
+	private Composer selctedComposer;
+	
+	
+	private ApplicationController controller;
+	
+	private ApplicationController()
+	{
+		super();
+		this.concertSeason = ConcertSeason.getConcertSeason();
+	}
+	
+	public List<Concert> getConcertList(){return this.concertSeason.getConcertList();}
+	public void addConcertToSeason(Concert c){this.concertSeason.addConcert(c);}
+	public void removeConcertAt(int i){this.concertSeason.removeConcertAt(i);}
+	
+	
+	
+	
+	
+}
