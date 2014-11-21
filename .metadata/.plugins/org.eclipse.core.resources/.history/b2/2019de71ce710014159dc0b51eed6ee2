@@ -17,15 +17,11 @@ public class ConcertSeason {
 		}
 		return concertSeason;
 	}
-	/*
-	 * gets
-	 */
+	
 	public List<Concert> getConcertList(){return this.concerts;}
 	public void addConcert(Concert c){this.concerts.add(c);}
 	public void removeConcertAt(int i){this.concerts.remove(i);}
-	/*
-	 * sets
-	 */
+	
 	public Date getStartDate(){return this.startDate;}
 	public void setStartDate(Date d){this.startDate = d;}
 	

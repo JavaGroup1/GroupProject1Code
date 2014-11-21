@@ -9,7 +9,7 @@ public class Composer extends Person{
 	
 	private Composer(int cID, Date dd){}
 	
-	//builder for composer
+	//builder
 	public static class Builder{
 		private Composer composer;
 		private String newFirstName;
@@ -56,13 +56,9 @@ public class Composer extends Person{
 	public static Builder builder(int i, Date date, String fName, String lName){
 		return new Builder(new Composer(i,date),fName, lName);
 	}
-	/*
-	 * set
-	 */
+	
 	public void setDateOfDeath(Date dod){this.dateOfDeath = dod;}
-	/*
-	 * gets
-	 */
+	
 	public int getComposerID(){return this.composerID;}
 	public Date getDateOfDeath(){return this.dateOfDeath;}
 }

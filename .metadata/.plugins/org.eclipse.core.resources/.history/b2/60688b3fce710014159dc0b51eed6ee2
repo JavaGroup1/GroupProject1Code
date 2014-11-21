@@ -39,15 +39,11 @@ public class Concert {
 	public void setPerformanceDate(Date d){this.performanceDate = d;}
 	public void setOrchestra(Orchestra o){this.orchestra = o;}
 	public void setVenue(Venue v){this.venue = v;}
-	/*
-	 * checks if the type of seats are avaliable
-	 */
+	
 	public boolean checkSeatsA(int i){if(i > seatsLeftA){return false;}else{return true;}}
 	public boolean checkSeatsB(int i){if(i > seatsLeftB){return false;}else{return true;}}
 	public boolean checkSeatsC(int i){if(i > seatsLeftC){return false;}else{return true;}}
-	/*
-	 * Removes the seats(books) throws exception if there weren't enough seats
-	 */
+	
 	public void removeSeatsA(int i)throws ApplicationException{
 		this.seatsLeftA -= i;
 		if(seatsLeftA < 0){
@@ -71,9 +67,7 @@ public class Concert {
 			throw new ApplicationException("Out of class C seats");
 		}
 	}
-	/*
-	 * Adds seats (unbooks)
-	 */
+	
 	public void addSeatsA(int i){this.seatsLeftA += i;}
 	public void addSeatsB(int i){this.seatsLeftB += i;}
 	public void addSeatsC(int i){this.seatsLeftC += i;}

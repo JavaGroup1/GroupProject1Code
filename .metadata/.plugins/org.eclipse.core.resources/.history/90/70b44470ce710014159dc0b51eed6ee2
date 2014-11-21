@@ -10,10 +10,8 @@ public class Conductor extends Musician {
 		this.conductorID = cid;
 	}
 	
+	//builder
 	
-	/*
-	 * builder for conductor
-	 */
 	public static class Builder{
 		private Conductor conductor;
 		private String newFirstName;
@@ -65,6 +63,6 @@ public class Conductor extends Musician {
 		return new Builder(new Conductor(i), fName, lName);
 	}
 	
-	public int getConductorID(){return this.conductorID;}
+	
 	
 }

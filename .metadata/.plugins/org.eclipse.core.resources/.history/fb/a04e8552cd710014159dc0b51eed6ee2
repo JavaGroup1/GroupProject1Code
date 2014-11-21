@@ -91,9 +91,6 @@ public class ApplicationController {
 		this.concertSeason.addConcert(selectedConcert);
 	}
 	
-	/*
-	 * Delegates for purchasing Tickets
-	 */
 	public Ticket purchaseTicket(char seatType, int seats) throws ApplicationException{
 		return this.purchaseTicket(seatType, seats, this.selectedConcert, this.selectedCustomer);
 	}
@@ -110,26 +107,17 @@ public class ApplicationController {
 		this.selectedTicket = this.ticketSales.sellTicket(concert, customer, seatType, seats);
 		return this.selectedTicket;
 	}
-	/*
-	 * Get for last purchased ticket
-	 */
+	
 	public Ticket getSelectedTicket(){return this.selectedTicket;}
 	
-	/*
-	 * Delegates for purchasing SeasonPasses
-	 */
 	public SeasonPass purchasePass(char seatType, int seats)throws ApplicationException{
 		return this.purchasePass(seatType, seats, selectedCustomer);
 	}
 	
 	public SeasonPass purchasePass(char seatType, int seats, Customer customer) throws ApplicationException{
-		this.selectedPass = this.ticketSales.sellConcertSeason(customer, seatType, seats);
+		this.selectedPass = this.ticketSales.sellConcertSeason(customer, seatType, seats)
 		return this.selectedPass;
 	}
-	/*
-	 * get for last purchased SeasonPass
-	 */
-	public SeasonPass getSelectedSeasonPass(){return this.selectedPass;}
 	
 	
 }

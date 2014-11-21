@@ -12,14 +12,10 @@ public class Composition {
 		this.composer = c;
 		this.name = n;
 	}
-	/*
-	 * gets
-	 */
+	
 	public int getCompositionID(){return this.compositionID;}
 	public Composer getComposer(){return this.composer;}
-	/*
-	 * sets
-	 */
+	
 	public int getMovementListSize(){return this.movements.size();}
 	public Movement getMovementAt(int i){return this.movements.get(i);}
 	public void addMovement(Movement m){this.movements.add(m);}

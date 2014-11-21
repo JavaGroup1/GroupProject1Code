@@ -5,9 +5,7 @@ public class Customer extends Person {
 	protected int customerID;
 	
 	private Customer(int id){this.customerID = id;}
-	/*
-	 * Builder for Customer
-	 */
+	
 	public static class Builder{
 		private Customer customer;
 		private String newFirstName;
@@ -52,11 +50,7 @@ public class Customer extends Person {
 	}
 	
 	public int getCustomerID(){return this.customerID;}
-	/*
-	 * Charges the purchase to the customer's credit card
-	 * does not work
-	 * TODO
-	 */
+	
 	public void chargeCustomer(double money) throws ApplicationException{
 		// can't implement
 		// charges customer and if it fails throws and exception
