@@ -17,9 +17,7 @@ public class SeasonPass {
 	private String seatSection;
 	private char grade;
 	private ConcertSeason concertSeason;
-	/*
-	 * gets
-	 */
+	
 	public double getPrice() {
 		return price;
 	}

@@ -19,9 +19,7 @@ public class Ticket {
 	private Concert concert;
 	
 	
-	/*
-	 * Gets
-	 */
+	
 	public double getPrice() {return price;}
 	public String getTicketID() {return ticketID;}
 	public String getSeatSection() {return seatSection;}

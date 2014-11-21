@@ -12,9 +12,7 @@ public class Soloist extends Musician{
 	public static Builder newBuild(int sid, String fName, String lName){
 		return new Builder(new Soloist(sid),fName, lName);
 	}
-	/*
-	 * Builder for soloist
-	 */
+	
 	public static class Builder{
 		private Soloist soloist;
 		private String newFirstName;

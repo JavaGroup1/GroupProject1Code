@@ -8,9 +8,7 @@ public class Orchestra {
 	private int orchestraID;
 	private List<Soloist> soloists = new ArrayList<Soloist>();
 	
-	/*
-	 * gets
-	 */
+	
 	public Conductor getConductor() {return conductor;}
 	public int getOrechestraID() {return orchestraID;}
 	

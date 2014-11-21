@@ -35,9 +35,7 @@ public class TicketSales {
 		if(null == ticketSales){ticketSales = new TicketSales();}
 		return ticketSales;
 	}
-	/*
-	 * Creates a ticket and reserves the seats and charges the customer for the ticket
-	 */
+	
 	/**
 	 * 
 	 * @param concert -Concert which is selected to buy the seat
@@ -97,10 +95,6 @@ public class TicketSales {
 		this.tickets.add(temp);
 		return temp;
 	}
-	/*
-	 * Creates a season pass and reserves the seats for all the concerts
-	 * Also charges the customer accordingly
-	 */
 	/**
 	 * 
 	 * @param customer -Customer buying the pass

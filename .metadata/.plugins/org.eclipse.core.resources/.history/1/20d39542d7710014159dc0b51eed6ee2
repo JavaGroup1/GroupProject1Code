@@ -99,7 +99,6 @@ public class TicketSales {
 	}
 	/*
 	 * Creates a season pass and reserves the seats for all the concerts
-	 * Also charges the customer accordingly
 	 */
 	/**
 	 * 
