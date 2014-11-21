@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+package symphony.domain;
 
 public class Orchestra {
 	public Orchestra() {	}
