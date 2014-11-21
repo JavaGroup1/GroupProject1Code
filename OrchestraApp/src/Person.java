@@ -1,5 +1,6 @@
 import java.sql.Date;
 
+package symphony.domain;
 
 public class Person {
 	protected String firstName;
