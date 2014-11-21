@@ -1,3 +1,4 @@
+package symphony.domain;
 
 public class Movement {
 	private String movementID;
