@@ -23,10 +23,34 @@ public class Ticket {
 	/*
 	 * Gets
 	 */
+	/**
+	 * 
+	 * @return price of ticket
+	 */
 	public double getPrice() {return price;}
+	/**
+	 * 
+	 * @return Ticket id
+	 */
 	public String getTicketID() {return ticketID;}
+	/**
+	 * 
+	 * @returnseat section
+	 */
 	public String getSeatSection() {return seatSection;}
+	/**
+	 * 
+	 * @return Grade of seat 
+	 */
 	public char getGrade() {return grade;}
+	/**
+	 * 
+	 * @return Date of Concert
+	 */
 	public Date getConcertDate() {return concertDate;}
+	/**
+	 * 
+	 * @return Concert
+	 */
 	public Concert getConcert() {return concert;}
 }
