@@ -1,0 +1,135 @@
+import java.sql.Date;
+import java.util.List;
+
+/*
+ * Controller for the view to access
+ * Is a singleton class
+ */
+public class ApplicationController {
+	private ConcertSeason concertSeason;
+	private Concert selectedConcert;
+	private Customer selectedCustomer;
+	private Soloist selectedSoloist;
+	private Conductor selectedConductor;
+	private Composer selectedComposer;
+	private Venue selectedVenue;
+	private TicketSales ticketSales = TicketSales.getTicketSales();
+	
+	private Ticket selectedTicket;
+	private SeasonPass selectedPass;
+	
+	private ApplicationController controller;
+	/*
+	 * Constructor
+	 */
+	private ApplicationController()
+	{
+		super();
+		this.concertSeason = ConcertSeason.getConcertSeason();
+	}
+	/*
+	 * Gets the class, if it is no initiated
+	 */
+	public ApplicationController getApplicationController(){
+		if(this.controller == null){this.controller = new ApplicationController();}
+		return this.controller;
+	}
+	/*
+	 * delegator to get concert list
+	 */
+	public List<Concert> getConcertList(){return this.concertSeason.getConcertList();}
+	public void addConcertToSeason(Concert c){this.concertSeason.addConcert(c);}
+	public void removeConcertAt(int i){this.concertSeason.removeConcertAt(i);}
+	
+	
+	//customer selection stuff
+	public void createCustomer(int i, String fName,String lName,String cellPhone, String homephone, Date dateOfBirth, String email, String homeAddress){
+		this.selectedCustomer = Customer.builder(i,fName, lName).cellPhone(cellPhone)
+				.homePhone(homephone).dateOfBirth(dateOfBirth).email(email).homeAddress(homeAddress).build();
+	}
+	public void selectCustomer(Customer customer){this.selectedCustomer = customer;}
+	public Customer getSelectedCustomer(){return this.selectedCustomer;}
+	
+	
+	/*
+	 * Soloist selector
+	 */
+	public void createSoloist(int i, String fName,String lName,String cellPhone, String homephone, Date dateOfBirth, String email, String homeAddress){
+		this.selectedSoloist = Soloist.newBuild(i, fName, lName).cellPhone(cellPhone).homePhone(homeAddress).homeAddress(homeAddress).dateOfBirth(dateOfBirth).email(email).build();
+	}
+	public void selectSoloist(Soloist soloist){this.selectedSoloist = soloist;}
+	public Soloist getSoloist(){return this.selectedSoloist;}
+	/*
+	 * Conductor accessor
+	 */
+	public void setSelectedConductor(Conductor conductor){this.selectedConductor = conductor;}
+	public Conductor getConductor(){return this.selectedConductor;}
+	/*
+	 * Composer accessor
+	 */
+	public void setSelectedComposer(Composer composer){this.selectedComposer = composer;}
+	public Composer getComposer(){return this.selectedComposer;}
+	/*
+	 * Venue accessor
+	 */
+	public void setSelectedVenue(Venue venue){this.selectedVenue = venue;}
+	public Venue getVenue(){return this.selectedVenue;}
+	/*
+	 * Concert accessor
+	 */
+	public void setSelectedConcert(Concert concert){this.selectedConcert = concert;}
+	public Concert getConcert(){return this.selectedConcert;}
+	
+	/*
+	 * ticket accessor
+	 */
+	public void addConcert(Concert concert){this.concertSeason.addConcert(concert);}
+	public void addConcert() throws ApplicationException{
+		if(this.selectedConcert == null){
+			throw new ApplicationException("No concert selected");
+		}
+		this.concertSeason.addConcert(selectedConcert);
+	}
+	
+	/*
+	 * Delegates for purchasing Tickets
+	 */
+	public Ticket purchaseTicket(char seatType, int seats) throws ApplicationException{
+		return this.purchaseTicket(seatType, seats, this.selectedConcert, this.selectedCustomer);
+	}
+	
+	public Ticket purchaseTicket(char seatType, int seats,Concert concert) throws ApplicationException{
+		return this.purchaseTicket(seatType, seats, concert, this.selectedCustomer);
+	}
+	
+	public Ticket purchaseTicket(char seatType, int seats,Customer customer) throws ApplicationException{
+		return this.purchaseTicket(seatType, seats, this.selectedConcert, customer);
+	}
+	
+	public Ticket purchaseTicket(char seatType, int seats, Concert concert, Customer customer) throws ApplicationException{
+		this.selectedTicket = this.ticketSales.sellTicket(concert, customer, seatType, seats);
+		return this.selectedTicket;
+	}
+	/*
+	 * Get for last purchased ticket
+	 */
+	public Ticket getSelectedTicket(){return this.selectedTicket;}
+	
+	/*
+	 * Delegates for purchasing SeasonPasses
+	 */
+	public SeasonPass purchasePass(char seatType, int seats)throws ApplicationException{
+		return this.purchasePass(seatType, seats, selectedCustomer);
+	}
+	
+	public SeasonPass purchasePass(char seatType, int seats, Customer customer) throws ApplicationException{
+		this.selectedPass = this.ticketSales.sellConcertSeason(customer, seatType, seats);
+		return this.selectedPass;
+	}
+	/*
+	 * get for last purchased SeasonPass
+	 */
+	public SeasonPass getSelectedSeasonPass(){return this.selectedPass;}
+	
+	
+}

@@ -1,6 +1,6 @@
 import java.sql.Date;
 import java.util.List;
-
+import symphony.domain.*;
 /*
  * Controller for the view to access
  * Is a singleton class
