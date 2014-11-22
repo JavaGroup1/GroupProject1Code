@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+package symphony.domain;
 
 public abstract class Musician extends Employee{
 	protected List<String> instrumentArray = new ArrayList<String>();

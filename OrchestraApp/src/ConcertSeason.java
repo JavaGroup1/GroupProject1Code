@@ -2,6 +2,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+package symphony.domain;
 
 public class ConcertSeason {
 	private static ConcertSeason concertSeason;

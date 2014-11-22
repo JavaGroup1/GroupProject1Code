@@ -1,5 +1,6 @@
 import java.sql.Date;
 
+package symphony.domain;
 
 public class Ticket {
 	
